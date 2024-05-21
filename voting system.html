@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting System</title>
+  <style>
+    /* CSS3 styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .candidate {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .candidate h2 {
+      color: #333;
+    }
+    
+    .vote-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Voting System</h1>
+    
+    <div class="candidate">
+      <h2>Candidate 1</h2>
+      <p>Description of Candidate 1</p>
+      <button class="vote-btn" onclick="voteForCandidate(1)">Vote</button>
+    </div>
+    
+    <div class="candidate">
+      <h2>Candidate 2</h2>
+      <p>Description of Candidate 2</p>
+      <button class="vote-btn" onclick="voteForCandidate(2)">Vote</button>
+    </div>
+    
+    <div class="candidate">
+      <h2>Candidate 3</h2>
+      <p>Description of Candidate 3</p>
+      <button class="vote-btn" onclick="voteForCandidate(3)">Vote</button>
+    </div>
+  </div>
+  
+  <script>
+        // JavaScript code for dynamic content
+        document.getElementById("votingResults").innerHTML = `
+            <h2>Voting Results:</h2>
+            <p>Candidate 1: ${candidate1Votes} votes</p>
+            <p>Candidate 2: ${candidate2Votes} votes</p>
+            <p>Candidate 3: ${candidate3Votes} votes</p>
+            <p>Winner: ${determineWinner(candidate1Votes, candidate2Votes, candidate3Votes)}</p>
+        `;
+
+        function determineWinner(candidate1Votes, candidate2Votes, candidate3Votes) {
+            let maxVotes = Math.max(candidate1Votes, Math.max(candidate2Votes, candidate3Votes));
+            if (maxVotes === candidate1Votes) {
+                return "Candidate 1";
+            } else if (maxVotes === candidate2Votes) {
+                return "Candidate 2";
+            } else {
+                return "Candidate 3";
+            }
+        }
+  </script>
+  
+
+</body>
+</html>
